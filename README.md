@@ -37,62 +37,42 @@ html-table-to-json/
 
 ### Steps
 
-1. Clone the repository:
+1. Install the package via pip:
 
    ```bash
-   git clone https://github.com/your-username/html-table-to-json.git
-   cd html-table-to-json
-   ```
-
-2. Create a virtual environment:
-
-   ```bash
-   python -m venv venv
-   ```
-
-3. Activate the virtual environment:
-
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-4. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+   pip install html-table-to-json
    ```
 
 ## Usage
 
 To convert a table from an HTML file to JSON, follow these steps:
 
-1. Navigate to the `src` directory:
+1. Import the `convert_html_table_to_json` function in your script:
 
-   ```bash
-   cd src
+   ```python
+   from html_table_to_json import convert_html_table_to_json
    ```
 
-2. Run the `main.py` script, passing the path of the HTML file as an argument:
+2. Use the `convert_html_table_to_json` function, passing the path of the HTML file as an argument:
 
-   ```bash
-   python main.py path/to/your/file.html
+   ```python
+   json_data = convert_html_table_to_json("path/to/your/file.html")
    ```
 
-3. The resulting JSON will be saved to `output/out.json`.
+3. The resulting JSON can be used directly in your script or saved to a file.
 
 ### Example
 
-If you have an HTML file named `table.html` in the root of the project, run:
+If you have an HTML file named `table.html` in the root of the project, you can convert it as follows:
 
-```bash
-python main.py ../table.html
+```python
+from html_table_to_json import convert_html_table_to_json
+
+json_data = convert_html_table_to_json("../table.html")
+
+with open("output/out.json", "w") as outfile:
+    outfile.write(json_data)
 ```
-
-The JSON will be saved in `output/out.json` and logs will be stored in `logs/html_table_to_json.log`.
 
 ## Code Structure
 

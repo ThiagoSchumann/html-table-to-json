@@ -1,4 +1,4 @@
-# HTML Table to JSON Converter
+# Conversor de Tabela HTML para JSON
 
 ![Python](https://img.shields.io/badge/Python-3.6%2B-blue.svg)
 ![pandas](https://img.shields.io/badge/pandas-1.x-yellow.svg)
@@ -35,62 +35,42 @@ html-table-to-json/
 
 ### Passos
 
-1. Clone o repositório:
+1. Instale o pacote via pip:
 
    ```bash
-   git clone https://github.com/seu-usuario/html-table-to-json.git
-   cd html-table-to-json
-   ```
-
-2. Crie um ambiente virtual:
-
-   ```bash
-   python -m venv venv
-   ```
-
-3. Ative o ambiente virtual:
-
-   - No Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - No macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-4. Instale as dependências:
-   ```bash
-   pip install -r requirements.txt
+   pip install html-table-to-json
    ```
 
 ## Uso
 
 Para converter uma tabela de um arquivo HTML para JSON, siga os passos abaixo:
 
-1. Navegue até o diretório `src`:
+1. Importe a função `convert_html_table_to_json` no seu script:
 
-   ```bash
-   cd src
+   ```python
+   from html_table_to_json import convert_html_table_to_json
    ```
 
-2. Execute o script `main.py` passando o caminho do arquivo HTML como argumento:
+2. Use a função `convert_html_table_to_json`, passando o caminho do arquivo HTML como argumento:
 
-   ```bash
-   python main.py caminho/para/seu/arquivo.html
+   ```python
+   json_data = convert_html_table_to_json("caminho/para/seu/arquivo.html")
    ```
 
-3. O JSON resultante será salvo em `output/out.json`.
+3. O JSON resultante pode ser usado diretamente no seu script ou salvo em um arquivo.
 
 ### Exemplo
 
-Se você tem um arquivo HTML chamado `tabela.html` na raiz do projeto, execute:
+Se você tem um arquivo HTML chamado `tabela.html` na raiz do projeto, você pode convertê-lo da seguinte forma:
 
-```bash
-python main.py ../tabela.html
+```python
+from html_table_to_json import convert_html_table_to_json
+
+json_data = convert_html_table_to_json("../tabela.html")
+
+with open("output/out.json", "w") as outfile:
+    outfile.write(json_data)
 ```
-
-O JSON será salvo em `output/out.json` e os logs serão armazenados em `logs/html_table_to_json.log`.
 
 ## Estrutura do Código
 
